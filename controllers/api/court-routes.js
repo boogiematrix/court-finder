@@ -12,11 +12,50 @@ router.get('/', async (req, res) => {
     }
 })
 //GET one court
+router.get('/:id', async (req, res) => {
+    try {
+        const courtData = await Court.findByPk(req.params.id, {
+            include: [Game]
+        });
+        if (!courtData) {
+            res.status(404).json({ message: 'No court found with this id!' });
+            return;
+        }
 
+        res.status(200).json(courtData);
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 //GET courts near me with games and playerCount
+router.get('/nearme', async (req, res) => {
+    try {
 
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 //POST new court
+router.post('/', async (req, res) => {
+    try {
 
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
 //PUT update court info
+router.put('/:id', async (req, res) => {
+    try {
 
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
 //DELETE court
+router.delete('/:id', async (req, res) => {
+    try {
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
