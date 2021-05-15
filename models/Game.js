@@ -16,8 +16,19 @@ Game.init(
             allowNull: false,
         },
         time: {
-            type: DataTypes
-        }
+            type: DataTypes.TIME,
+            allowNull: false,
+        },
+        isWeekly: {
+            type: DataTypes.BOOLEAN,
+        },
+        court_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'court',
+                key: 'id',
+            },
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

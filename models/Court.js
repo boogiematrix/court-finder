@@ -29,6 +29,10 @@ Court.init(
         hasLights: {
             type: DataTypes.BOOLEAN,
         },
+        gameCount: {
+            type: DataTypes.INTEGER,
+
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
