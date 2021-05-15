@@ -38,7 +38,8 @@ router.get('/nearme', async (req, res) => {
 //POST new court
 router.post('/', async (req, res) => {
     try {
-
+        const courtData = await Court.create(req.body);
+        res.status(200).json(courtData);
     } catch (err) {
         res.status(400).json(err);
     }
@@ -46,7 +47,7 @@ router.post('/', async (req, res) => {
 //PUT update court info
 router.put('/:id', async (req, res) => {
     try {
-
+        
     } catch (err) {
         res.status(400).json(err);
     }
@@ -54,7 +55,18 @@ router.put('/:id', async (req, res) => {
 //DELETE court
 router.delete('/:id', async (req, res) => {
     try {
+        const courtData = await Court.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
 
+        if (!courtData) {
+            res.status(404).json({ message: 'No court found with this id!' });
+            return;
+        }
+
+        res.status(204).send()
     } catch (err) {
         res.status(500).json(err);
     }
