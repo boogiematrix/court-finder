@@ -46,7 +46,7 @@ Court.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'court',
     }
 )
 

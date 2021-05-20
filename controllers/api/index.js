@@ -4,8 +4,8 @@ const userRoutes = require('./user-routes');
 const gameRoutes = require('./game-routes');
 const courtRoutes = require('./court-routes');
 
-router.use('/user-routes', userRoutes);
-router.use('/game-routes', gameRoutes);
-router.use('/court-routes', courtRoutes);
+router.use('/users', userRoutes);
+router.use('/games', gameRoutes);
+router.use('/courts', courtRoutes);
 
 module.exports = router;
