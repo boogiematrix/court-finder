@@ -7,38 +7,37 @@ const Player = require('../../models/User')
 
 //GET all games
 router.get('/', async (req, res) => {
-  try {
-      const gameData = await Game.findAll();
-      res.status(200).json(gameData);
-  } catch (err) {
-      res.status(500).json(err);
-  }
-})
+    try {
+        const gameData = await Game.findAll();
+        res.status(200).json(gameData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
   
 //GET a game by id
 router.get('/:id', async (req, res) => {
-  try {
-      const gameData = await Game.findbyPk( {
-          where: {
-              id: req.params.id,
-          },
-      });
+    try {
+        const gameData = await Game.findByPk(req.params.id, {
+            include: [Court],
+        }
+        );
 
-      if (!gameData) {
-          res.status(404).json({ message: 'No game found with this id!' });
-          return;
-      };
+        if (!gameData) {
+            res.status(404).json({ message: 'No game found with this id!' });
+            return;
+        };
 
-      res.status(200).json(gameData)
-  } catch (err) {
-      res.status(400).json(err);
-  }
-})
+        res.status(200).json(gameData)
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 //GET games by court
 //Calling in Court model??
-router.get('/:court_id', async (req, res) => {
+router.get('/court/:court_id', async (req, res) => {
   try {
-      const gameData = await Game.findbyAll({
+      const gameData = await Game.findAll({
         include:[Court],
       }, {
           where: {

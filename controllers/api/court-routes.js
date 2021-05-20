@@ -31,7 +31,7 @@ router.get('/:id', async (req, res) => {
 })
 
 //GET courts near me with games and playerCount
-router.get('/:zip', async (req, res) => {
+router.get('/zip/:zip', async (req, res) => {
     try {
         const courtData = await Court.findAll({
             where: {
