@@ -16,7 +16,15 @@ Game.init(
             allowNull: false,
         },
         time: {
-            type: DataTypes
+            type: DataTypes.TIME,
+            allowNull: false,
+        },
+        court_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'court',
+                key: 'id',
+            },
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -24,7 +32,7 @@ Game.init(
                 model: 'user',
                 key: 'id',
             },
-        }
+        },
     },
     {
         sequelize,
@@ -32,7 +40,7 @@ Game.init(
         freezeTableName: true,
         underscored: true,
         modelName: 'game',
-    }
+    },
 )
 
 module.exports = Game 
