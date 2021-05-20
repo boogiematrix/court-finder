@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Player } = require('../../models');
 
 //TODO add join a game route
 
@@ -59,5 +59,17 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
+
+router.post('/join', async (req, res) => {
+    try {
+        const newPlayer = await Player.create({
+            user_id: req.session.user_id,
+            game_id: req.body.game_id
+        });
+        res.status(200).json(newPlayer);
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
 
 module.exports = router;
