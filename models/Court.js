@@ -11,19 +11,8 @@ Court.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        street: {
+        address: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isAlphanumeric: true,
-            }
-        },
-        city: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        zip: {
-            type: DataTypes.INTEGER,
             allowNull: false,
         },
         hasLights: {
