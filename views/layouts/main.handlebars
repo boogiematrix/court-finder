@@ -7,8 +7,7 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
   <title>Court Finder!</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body class="hero">
@@ -20,7 +19,7 @@
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
+        {{#if loggedIn}}
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
@@ -37,12 +36,9 @@
 <!-- <img class="story-image" title="Angels Gate Park in San Pedro, California" src="https://thumbor.granitemedia.com/angels-gate-park-in-san-pedro-california/t4QDT3Nhp59xVwXMK6z2RUlHpnI=/800x600/filters:format(webp):quality(80)/granite-web-prod/69/b1/69b1eaae662041709e833f4f2bb437c1.jpeg"> -->
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
-<<<<<<< HEAD
+
       {{{ body }}}
-=======
-      {{{ <body>
-      </body> }}}
->>>>>>> ae97fc7c6651612a88b9ade637797f279e4dd5f4
+
     </main>
     <footer>
       
@@ -50,7 +46,7 @@
   </div>
 
   <!-- Render script for logged in users only -->
-  {{#if logged_in}}
+  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
