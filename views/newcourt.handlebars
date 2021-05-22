@@ -1,13 +1,27 @@
-<div class="post card">
+<div class="card">
   <div class="card-header">
     <h2>Create New Court Location</h2>
   </div>
-  <form id="new-post-form" class="card-body">
-    <label class="form-label" for="post-title">Create New Court</label>
-    <input type="text" name="post-title" class="form-input" />
+  <form id="new-court-form" class="card-body">
+    <label class="form-label" for="street">Street</label>
+    <input type="text" name="street" class="form-input" />
 
-    <label class="form-label" for="post-body">Address</label>
-    <textarea name="post-body" class="form-input"></textarea>
+    <label class="form-label" for="city">City</label>
+    <input type="text" name="city" class="form-input" />
+
+    <label class="form-label" for="zip">Zip</label>
+    <input type="text" name="zip" class="form-input" />
+
+    <p>Does this court have Lights?</p>
+    <div>
+        <input type="radio" id="true" name="hasLights" value="true">
+        <label for="true">Yes</label>
+    </div>
+    
+    <div>
+        <input type="radio" id="false" name="hasLights" value="false">
+        <label for="false">No</label>
+    </div>
 
     <button type="submit" class="btn">Create</button>
   </form>

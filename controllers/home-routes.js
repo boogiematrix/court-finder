@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 //GET '/login'
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('dashboard', {
+        res.render('homepage', {
             loggedIn: req.session.loggedIn,
         })
     } else {
@@ -37,11 +37,11 @@ router.get('/login', (req, res) => {
 //GET '/signup'
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('dashboard', {
+        res.render('homepage', {
             loggedIn: req.session.loggedIn,
         });
     } else {
-        res.render('signup')
+        res.render('login')
     }
 });
 //GET individual court view
