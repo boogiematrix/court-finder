@@ -10,29 +10,23 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="hero">
+<body class="hero"> <!-- this is where the background image in the css is coming from -->
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
         <span role="img" aria-label="money">🏀</span>
-        <a href="/">Find a Court in the Twin Cities!</a>
+        Find a Court in the Twin Cities!
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if loggedIn}}
-        <a href="/profile">profile</a> |
+        <a href="/profile">Profile Dashboard</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
       </nav>
     </header>
-<ol>
-    <li>Powder Horn <span>Player Count</span></li>
-    <li><span class="d-block p-2 bg-primary text-white">Test...Court 2 - Players = {{number}}</span></li>
-    <li>Maple Grove<span>Player Count</span></li>
-    <li><span class="d-block p-2 bg-primary text-white">Test...Court 3 - Players = {{number}}</span></li>
-</ol>
 <!-- <img class="story-image" title="Angels Gate Park in San Pedro, California" src="https://thumbor.granitemedia.com/angels-gate-park-in-san-pedro-california/t4QDT3Nhp59xVwXMK6z2RUlHpnI=/800x600/filters:format(webp):quality(80)/granite-web-prod/69/b1/69b1eaae662041709e833f4f2bb437c1.jpeg"> -->
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
