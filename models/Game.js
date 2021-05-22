@@ -15,10 +15,6 @@ Game.init(
             type: DataTypes.DATE,
             allowNull: false,
         },
-        time: {
-            type: DataTypes.TIME,
-            allowNull: false,
-        },
         court_id: {
             type: DataTypes.INTEGER,
             references: {
