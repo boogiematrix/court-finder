@@ -34,12 +34,12 @@
   }
 
 .hero   {
-    background-image: url(./background.jpeg);
-    background-position: center center;
+    /* background-image: url(./background.jpeg); */
+   background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-align: center;
-}
+} 
 
 header {
     margin-top: 50px;
