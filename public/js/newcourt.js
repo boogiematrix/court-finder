@@ -4,7 +4,7 @@ const newCourt = async function (event) {
     const street = document.querySelector('#street').value;
     const city = document.querySelector('#city').value;
     const zip = document.querySelector('#zip').value;
-    const hasLights = document.querySelector('#hasLights').value;
+    const hasLights = document.querySelector('input[name="hasLights"]:checked').value;;
 
     const address = `${street}+${city}+${zip}`.replaceAll(' ', '+')
     
