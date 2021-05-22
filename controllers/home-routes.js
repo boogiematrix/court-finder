@@ -165,8 +165,8 @@ router.get('/updatecourt/:id', withAuth, async (req, res) => {
     }
 });
 //GET add game
-router.get('/addgame', withAuth, (req, res) => {
-    res.render('addgame', {
+router.get('/newgame', withAuth, (req, res) => {
+    res.render('newgame', {
         loggedIn: req.session.loggedIn,
     });
     return;
