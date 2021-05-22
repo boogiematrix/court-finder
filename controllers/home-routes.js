@@ -52,9 +52,9 @@ router.get('/courts/:id', async (req, res) => {
             subQuery: false,
         });
 
-        if (postData) {
+        if (courtData) {
             const court = courtData.get({ plain: true });
-    
+            console.log(court)
             res.render('onecourt', {
                 court,
                 loggedIn: req.session.loggedIn,
@@ -68,19 +68,20 @@ router.get('/courts/:id', async (req, res) => {
     }
 });
 //GET games by court view
-router.get('/games/:court_id', async (req, res) => {
+ /*router.get('/games/:court_id', async (req, res) => {
     try {
-        const gameData = await Game.findbyAll({
-            include: [Court],
+        const gameData = await Court.findByPk({
+            include: [Game],
         }, {
             where: {
-                court_id: req.params.court_id,
+                id: req.params.court_id,
             },
         });
 
         if (gameData) {
             const game = gameData.get({ plain: true });
-            res.render('court-games', {
+            console.log(game);
+            res.render('onecourt', {
                 game,
                 loggedIn: req.session.loggedIn,
         })
@@ -91,7 +92,7 @@ router.get('/games/:court_id', async (req, res) => {
         console.log(err)
         res.status(500).json(err);
     }
-})
+})*/
 //GET one game
 router.get('/games/:id', async (req, res) => {
     try {

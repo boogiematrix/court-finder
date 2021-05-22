@@ -59,7 +59,11 @@ router.get('/court/:court_id', async (req, res) => {
 //POST new game
 router.post('/', async (req, res) => {
   try {
-      const gameData = await Game.create(req.body);
+      const gameData = await Game.create({
+          date: req.body.date,
+          user_id: req.session.user_id,
+          court_id: req.body.courtId,
+      });
       res.status(200).json(gameData);
   } catch (err) {
       res.status(400).json(err);
