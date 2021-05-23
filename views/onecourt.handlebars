@@ -3,7 +3,7 @@
     <div>
         <form id='gameDelete'>
             <input type="hidden" id='game-id' name="game-id" value="{{id}}" />
-        <p>{{format_date date}}</p> <button type="submit" class="btn">Delete</button>
+        <p><a href='/games/{{id}}'> {{format_date date}}</a></p> <button type="submit" class="btn">Delete</button>
         </form>
     </div>
 {{/each}}
