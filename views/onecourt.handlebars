@@ -1,13 +1,13 @@
 <h2>{{format_address court.address}}</h2>
 {{#each court.games}}
     <div>
-        <form id='gameDelete'>
+        <form class='gameDelete'>
             <input type="hidden" id='game-id' name="game-id" value="{{id}}" />
         <p><a href='/games/{{id}}'> {{format_date date}}</a></p> <button type="submit" class="btn">Delete</button>
         </form>
     </div>
 {{/each}}
-
+<button style="display: none;" class='gameDelete'></button>
 <h3>Add a game?</h3>
 <div class="post card">
     <div class="card-header">
