@@ -32,7 +32,7 @@ const deleteGame = async function (event) {
 }
 
 document
-    .querySelector('#gameDelete')
+    .querySelector('.gameDelete')
     .addEventListener('submit', deleteGame)
 
 document
