@@ -15,8 +15,25 @@ const newGame = async function (event) {
         headers: { 'Content-Type': 'application/json' },
     });
 
-    //document.location.replace('/');
+    document.location.reload();
 };
+
+const deleteGame = async function (event) {
+    event.preventDefault();
+
+    const gameId = document.getElementById('game-id').value
+    console.log(gameId)
+    await fetch(`/api/games/${gameId}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    
+    document.location.reload();
+}
+
+document
+    .querySelector('#gameDelete')
+    .addEventListener('submit', deleteGame)
 
 document
     .querySelector('#new-game-form')
