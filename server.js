@@ -3,7 +3,6 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
-//const seedAll= require('./seeds/index')
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -38,3 +37,4 @@ app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
     sequelize.sync({ force: false });
 });
+
