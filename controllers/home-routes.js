@@ -15,8 +15,7 @@ router.get('/', async (req, res) => {
             return;
         }
         const court = courtData.map((court) => court.get({ plain: true }));
-        console.log(court)
-        console.log(court[0].games.length)
+
         res.render('homepage', {
             court,
             loggedIn: req.session.loggedIn,
