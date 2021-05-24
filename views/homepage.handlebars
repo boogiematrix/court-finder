@@ -6,13 +6,12 @@
 
 
 {{#each court}}
-<div class="container">
+<div class="container container-fluid mt-5">
   <div class="row">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 85%;">
 
     <div class="card-body">
         <h5 class="card-title">Court Address</h5>
-        <p class="card-text">
         <a href='courts/{{id}}'>{{format_address address}}</a></p>
               
         <button type="button" class="btn btn-primary">
@@ -21,6 +20,16 @@
     </div>
 </div>
         </div>
-        </div>
-        </div>
+</div>
         {{/each}}
+
+        <div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Featured
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+</div>
