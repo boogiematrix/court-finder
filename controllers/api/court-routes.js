@@ -53,7 +53,7 @@ router.get('/zip/:zip', async (req, res) => {
 })
 
 //POST new court
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const courtData = await Court.create({
             address: req.body.address,
@@ -67,7 +67,7 @@ router.post('/', async (req, res) => {
 })
 
 //PUT update court info
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const courtData = await Court.update(req.body, {
             where: {
@@ -87,7 +87,7 @@ router.put('/:id', async (req, res) => {
 })
 
 //DELETE court
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const courtData = await Court.destroy({
             where: {
