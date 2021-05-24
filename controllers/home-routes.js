@@ -5,7 +5,7 @@ const { Game, Court, User, Player } = require('../models/')
 router.get('/', async (req, res) => {
     try {
         const courtData = await Court.findAll({
-            include: [User],
+            include: [User, Game],
             subQuery: false,
         });
 
@@ -14,6 +14,8 @@ router.get('/', async (req, res) => {
             return;
         }
         const court = courtData.map((court) => court.get({ plain: true }));
+        console.log(court)
+        console.log(court[0].games.length)
         res.render('homepage', {
             court,
             loggedIn: req.session.loggedIn,
@@ -48,13 +50,20 @@ router.get('/signup', (req, res) => {
 router.get('/courts/:id', async (req, res) => {
     try {
         const courtData = await Court.findByPk(req.params.id, {
-            include: [User, Game],
+            include: {
+                model: Game,
+                include: {
+                    model: User,
+                    as: 'user_games'
+                }
+            },
             subQuery: false,
         });
 
         if (courtData) {
             const court = courtData.get({ plain: true });
-            console.log(court)
+            console.log(court);
+            console.log(court.games[0].user_games)
             res.render('onecourt', {
                 court,
                 loggedIn: req.session.loggedIn,
