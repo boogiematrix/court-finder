@@ -40,13 +40,21 @@
 .hero   {
     background-image: url(./outdoor.jpg);
    background-position: center center;
+   background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-align: center;
 } 
 
 header {
-    margin-top: 50px;
+    margin-top: 60px;
+  background: rgba(255, 255, 255, .3);
+  display: inline-block;
+	-webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 10px/ 15px;
+  width: 80%;
+  margin: 0 auto;
   }
   
   main {
@@ -119,3 +127,12 @@ header {
     color: var(--primary);
   }
   
+.onegame {
+    background: rgba(37, 13, 104, 0.3);
+  display: inline-block;
+	-webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 10px/ 15px;
+  width: 80%;
+  margin: 0 auto;
+}
