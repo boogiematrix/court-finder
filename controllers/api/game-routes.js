@@ -57,7 +57,7 @@ router.get('/court/:court_id', async (req, res) => {
 })
 //FUTURE PLAN GET games by user (with some kind of friend system)
 //POST new game
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
       const gameData = await Game.create({
           date: req.body.date,
@@ -70,7 +70,7 @@ router.post('/', async (req, res) => {
   }
 })
 //PUT update game 
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
       const gameData = await Game.update(req.body, {
           where: {
@@ -89,7 +89,7 @@ router.put('/:id', async (req, res) => {
   }
 })
 //DELETE game
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
       const gameData = await Game.destroy({
           where: {
