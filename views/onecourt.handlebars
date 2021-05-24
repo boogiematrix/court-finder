@@ -1,0 +1,30 @@
+<h2>{{format_address court.address}}</h2>
+{{#each court.games}}
+    <div>
+        <form class='gameDelete'>
+            <input type="hidden" id='game-id' name="game-id" value="{{id}}" />
+        <p><a href='/games/{{id}}'> {{format_date date}}</a></p> <p>Current Players: {{user_games.length}}</p><button type="submit" class="btn">Delete</button>
+        </form>
+    </div>
+{{/each}}
+<button style="display: none;" class='gameDelete'></button>
+<h3>Add a game?</h3>
+<div class="post card">
+    <div class="card-header">
+        <h2>Create New Game</h2>
+    </div>
+    <form id="new-game-form" class="card-body">
+        <div class="form-group">
+            <input type="hidden" id='court-id' name="court-id" value="{{court.id}}" />
+        </div>
+        <label class="form-label" for="date">Date</label>
+        <input type="text" name="date" class="form-input" id="date" />
+
+        <label class="form-label" for="time">Time</label>
+        <input name="time" class="form-input" id="time"/>
+
+        <button type="submit" class="btn">Create</button>
+    </form>
+</div>
+
+<script src="/js/newgame.js"></script>

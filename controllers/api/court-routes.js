@@ -55,7 +55,11 @@ router.get('/zip/:zip', async (req, res) => {
 //POST new court
 router.post('/', async (req, res) => {
     try {
-        const courtData = await Court.create(req.body);
+        const courtData = await Court.create({
+            address: req.body.address,
+            hasLights: req.body.hasLights,
+            user_id: req.session.user_id,
+        });
         res.status(200).json(courtData);
     } catch (err) {
         res.status(400).json(err);

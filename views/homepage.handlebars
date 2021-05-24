@@ -1,3 +1,26 @@
+
+        {{!-- {{#each court}}
+        <div><a href='courts/{{id}}'>{{format_address address}}</a>
+        {{/each}}  --}}
+
+
+
 {{#each court}}
-<div>{{address}}</div>
-{{/each}}
+<div class="container">
+  <div class="row">
+        <div class="card" style="width: 18rem;">
+
+    <div class="card-body">
+        <h5 class="card-title">Court Address</h5>
+        <p class="card-text">
+        <a href='courts/{{id}}'>{{format_address address}}</a></p>
+              
+        <button type="button" class="btn btn-primary">
+  Scheduled Games: <span class="badge bg-secondary">{{games.length}}</span>
+</button></div>
+    </div>
+</div>
+        </div>
+        </div>
+        </div>
+        {{/each}}
