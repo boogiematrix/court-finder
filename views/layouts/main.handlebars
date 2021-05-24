@@ -13,14 +13,17 @@
 <body class="hero"> <!-- this is where the background image in the css is coming from -->
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
-      <h1>
+      <h1 style="line-height: 1.50; font-size: 48px; text-decoration: underline">
         <span role="img" aria-label="money">🏀</span>
-        Find a Court in the Twin Cities!
+        Court-Finder</h1>
+        <h1>
+         Pick-up basketball in the Twin Cities!
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if loggedIn}}
        <button><a href="/">Home</a></button>
+       <button><a href="/courtsnearme">Courts near me</a></button>
         <button> <a href="/newcourt">New Court</a></button>
         <button class="no-button" id="logout">logout</button>
         {{else}}
