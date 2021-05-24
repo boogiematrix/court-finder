@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { Game, Court, User, Player } = require('../models/')
+const getDistance = require('../public/js/courtnearme')
 //GET '/' for homepage display all courts nearby
 router.get('/', async (req, res) => {
     try {
@@ -199,6 +200,41 @@ router.get('/updategame/:id', withAuth, async (req, res) => {
         console.log(err)
         res.status(500).json(err);
     }
+});
+
+router.get('/nearme', (req, res) => {
+    res.render('near-me', {
+        loggedIn: req.session.loggedIn,
+    });
+    return;
+})
+
+router.get('/nearme/:address', async (req, res) => {
+    try {
+        const courtData = await Court.findAll({
+            include: [Game],
+            subQuery: false,
+        });
+
+        if (!courtData) {
+            res.status(403).json();
+            return;
+        }
+        const court = courtData.map((court) => court.get({ plain: true }));
+        //console.log(court)
+        console.log(`address${req.params.address}`)
+        const courtNear = await getDistance(5, req.params.address, court)
+        console.log(courtNear)
+        //console.log(court[0].games.length)
+        res.render('courtnearme', {
+            courtNear,
+            loggedIn: req.session.loggedIn,
+        });
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    };
+
 });
 
 module.exports = router
