@@ -38,7 +38,7 @@
   }
 
 .hero   {
-    /* background-image: url(./background.jpeg); */
+    background-image: url(./outdoor.jpg);
    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
