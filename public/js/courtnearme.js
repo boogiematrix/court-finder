@@ -19,14 +19,21 @@ const courtdata = [
       creator: 'Bijan',
     },
   ];
-const courtAdds=courtdata[0].address+'|'+courtdata[1].address+'|'+courtdata[2].address
-const getDistance= async(range, originAdr, courtAdr)=> {;
-    try{
+//const courtAdds=courtdata[0].address+'|'+courtdata[1].address+'|'+courtdata[2].address
+const getDistance= async(range, originAdr, courtAdr)=> {
+  let courtAdrString = '';
+  for (let i = 0; i < courtAdr.length; i++) {
+    courtAdrString += `${courtAdr[i].address}|`;
+    //console.log(`courts:${courtAdrString}`)
+  }
+  //console.log(`courts:${courtAdrString}`)
+  courtAdrString.slice(-1)
+  try {
         const resp = await axios.get('https://maps.googleapis.com/maps/api/distancematrix/json',
         {params:
             {units: 'imperial',
             origins:originAdr,
-            destinations:courtAdr,
+            destinations:courtAdrString,
             key:'AIzaSyAexWk-s7fGhAtV1jikHnncG5syH41GJ1E'}})
     
     
@@ -37,7 +44,7 @@ const getDistance= async(range, originAdr, courtAdr)=> {;
         for (let i=0; i<courts.length;i++)
         { if
             (courts[i].distance.value<range*5280)
-            {courtsinArea.push(courtdata[i].address);}}  
+            {courtsinArea.push(courtAdr[i]);}}  
         return courtsinArea   
     }
   
@@ -48,10 +55,5 @@ const getDistance= async(range, originAdr, courtAdr)=> {;
 }
      
 
-
-
-//console.log (courtdata[0].name)
-
-
-console.log(getDistance(2,'1336+Lincoln+Ave+Saint+Paul+MN', courtAdds))
+module.exports = getDistance
 
