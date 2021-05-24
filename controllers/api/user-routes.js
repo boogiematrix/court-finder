@@ -63,11 +63,23 @@ router.post('/logout', (req, res) => {
 
 router.post('/join', withAuth, async (req, res) => {
     try {
-        const newPlayer = await Player.create({
-            user_id: req.session.user_id,
-            game_id: req.body.game_id
-        });
-        res.status(200).json(newPlayer);
+        const playerData = await Player.findOne({
+            where: {
+                user_id: req.session.user_id,
+                game_id: req.body.game_id
+            }
+        })
+        console.log(playerData)
+        if (!playerData) {
+            const newPlayer = await Player.create({
+                user_id: req.session.user_id,
+                game_id: req.body.game_id
+            });
+            res.status(200).json(newPlayer);
+            return
+        }
+        res.status(400).json({ message: "You've already joined this game" })
+        return;
     } catch (err) {
         res.status(500).send(err)
     }
