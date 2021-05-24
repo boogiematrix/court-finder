@@ -1,5 +1,16 @@
 <h2>{{format_address court.address}}</h2>
+
+
+
 {{#each court.games}}
+<div class="container-sm container-fluid mt-5">
+  <div class="row">
+        <div class="card" style="width: 100%;">
+
+    <div class="card-body">
+        <h5 class="card-title">Game</h5>
+        <p class="card-text">
+
     <div>
         <form class='gameDelete'>
             <input type="hidden" id='game-id' name="game-id" value="{{id}}" />
@@ -7,7 +18,14 @@
         </form>
     </div>
 {{/each}}
+
 <button style="display: none;" class='gameDelete'></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container-sm container-fluid mt-5">
 <h3>Add a game?</h3>
 <div class="post card">
     <div class="card-header">
@@ -25,6 +43,7 @@
 
         <button type="submit" class="btn">Create</button>
     </form>
+</div>
 </div>
 
 <script src="/js/newgame.js"></script>
