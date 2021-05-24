@@ -63,7 +63,6 @@ router.get('/courts/:id', async (req, res) => {
         if (courtData) {
             const court = courtData.get({ plain: true });
             console.log(court);
-            console.log(court.games[0].user_games)
             res.render('onecourt', {
                 court,
                 loggedIn: req.session.loggedIn,

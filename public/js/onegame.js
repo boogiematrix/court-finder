@@ -14,7 +14,7 @@ const joinGame = async function (event) {
             }
         });
 
-        //document.location.reload();
+        document.location.replace('/');
     }
 };
 
